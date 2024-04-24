@@ -127,11 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="approximatelyEqual.cpp" />
     <ClCompile Include="ProgrammingL6VS.cpp" />
+    <ClCompile Include="task17.cpp" />
     <ClCompile Include="tasks.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="approxEqual.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="task17.h" />
     <ClInclude Include="tasks.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
