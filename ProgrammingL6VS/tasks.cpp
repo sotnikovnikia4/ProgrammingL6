@@ -20,7 +20,7 @@ void doTaskDependOnArgsOrPrintError(int countArgs, char* args[]) {//32 17
 
 	string function (args[1]);
 
-	cout << "функция " << function << endl;
+	cout << "функция " << function << endl << endl;
 
 	if (function == "approximatelyEqual") {
 		doApproximatelyEqual(countArgs, args);

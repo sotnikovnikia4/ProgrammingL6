@@ -1,7 +1,10 @@
 #pragma once
 
+using ullong = unsigned long long;
+
 namespace constants {
-	const unsigned long long firstByte = ~(ULLONG_MAX << 8);
-	const unsigned long long sizeLongLong = sizeof(unsigned long long);
-	const unsigned long long firstBit = 0x1ULL;
+	const ullong firstByte = 0xFF;
+	const ullong sizeLongLong = sizeof(unsigned long long) << 3;
+	const ullong firstBit = 0x1ULL;
+	const ullong maxValue = ULLONG_MAX;
 }
