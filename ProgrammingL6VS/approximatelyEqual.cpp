@@ -6,6 +6,37 @@
 using namespace std;
 
 bool isDouble(const string& str) {
+	cout << "checking number: " << str << endl;
+	bool e = false;
+	bool dot = false;
+	for (int i = 0; i < str.length(); i++) {
+		if (isdigit(str[i])) {
+			continue;
+		}
+		else {
+			if (i == 0 && (str[i] == '-' || str[i] == '+')) {
+				continue;
+			}
+			else if (str[i] == ',' && !dot && !e) {
+				dot = true;
+				continue;
+			}
+			else if (str[i] == 'e' && !e) {
+				e = true;
+				continue;
+			}
+			else if (i > 0 && str[i - 1] == 'e' && (str[i] == '-' || str[i] == '+')) {
+				continue;
+				
+			}
+			else {
+				return false;
+			}
+		}
+	}
+
+	cout << stod(str) << endl;
+
 	return true;
 }
 
@@ -30,7 +61,7 @@ bool approximatelyEqualAbsRel(double a, double b, double absEpsilon, double relE
 bool argsAreCorrect(int countArgs, char* args[], int countMeaningfulArgs) {
 	if (countArgs < countMeaningfulArgs) return false;
 
-	for (int i = 0; i < countMeaningfulArgs; i++) {
+	for (int i = 2; i < countMeaningfulArgs; i++) {
 		if (!isDouble(args[i]))
 			return false;
 	}
@@ -43,7 +74,6 @@ void doApproximatelyEqual(int countArgs, char* args[]) {
 		cout << "Некорректные аргументы";
 	}
 	else {
-
 		cout << "Результат сравнения чисел " << args[2] << " и " << args[3] << " с точностью " << args[4] << ": ";
 		cout << (approximatelyEqual(stod(args[2]), stod(args[3]), stod(args[4])) ? "равны" : "не равны") << endl;
 	}

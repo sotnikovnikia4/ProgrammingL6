@@ -15,6 +15,8 @@ int main(int argc, char* argv[]) {
     system("chcp 1251");
     setlocale(LC_ALL, "");
 
+    //cout << stod("45e0,5") << endl;
+
     doTaskDependOnArgsOrPrintError(argc, argv);
 
     return 0;
