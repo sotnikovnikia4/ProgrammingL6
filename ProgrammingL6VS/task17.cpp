@@ -2,37 +2,14 @@
 #include <iostream>
 
 #include "constants.h"
+#include "myfunctions.h"
 
 using namespace std;
 using namespace constants;
 
 using ullong = unsigned long long;
 
-ullong minusOne(ullong number) {
-	if (number == 0) return number;
-
-	ullong pos = 0b1ull;
-	ullong temp = 0b1ull;
-
-	while ((pos < maxValue) && temp != 0) {
-		number ^= temp;
-		temp = (pos & number) << 1;
-		pos <<= 1;
-	}
-
-	return number;
-}
-
-bool isullong(const string& str) {
-
-	for (char c : str) {
-		if (!isdigit(c)) return false;
-	}
-
-	return true;
-}
-
-bool argsAreCorrect(int countArgs, char* args[]) {
+bool argsAreCorrect17(int countArgs, char* args[]) {
 	if (countArgs < 5) {
 		cout << "¬ведено мало аргументов";
 		return false;
@@ -85,7 +62,7 @@ ullong getModifiedNumber(ullong number, ullong pos, ullong byte) {
 
 void doTask17(int countArgs, char* args[]) {
 
-	if (!argsAreCorrect(countArgs, args)) return;
+	if (!argsAreCorrect17(countArgs, args)) return;
 
 	ullong number = stoull(args[2]);
 	ullong pos = stoull(args[3]);

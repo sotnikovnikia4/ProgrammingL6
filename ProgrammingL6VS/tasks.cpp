@@ -6,6 +6,7 @@
 #include "constants.h"
 #include "approxEqual.h"
 #include "task17.h"
+#include "task32.h"
 
 using namespace std;
 using namespace constants;
@@ -32,7 +33,7 @@ void doTaskDependOnArgsOrPrintError(int countArgs, char* args[]) {//32 17
 		doTask17(countArgs, args);
 	}
 	else if (function == "32") {
-
+		doTask32(countArgs, args);
 	}
 	else {
 		cout << "¬ведено им€ несуществующей функции" << endl;
