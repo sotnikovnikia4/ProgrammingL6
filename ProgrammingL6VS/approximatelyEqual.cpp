@@ -1,6 +1,7 @@
 // Возвращаем true, если разница между a и b в пределах процента эпсилона
 #include <cmath>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -37,3 +38,23 @@ bool argsAreCorrect(int countArgs, char* args[], int countMeaningfulArgs) {
 	return true;
 }
 
+void doApproximatelyEqual(int countArgs, char* args[]) {
+	if (!argsAreCorrect(countArgs, args, 5)) {
+		cout << "Некорректные аргументы";
+	}
+	else {
+
+		cout << "Результат сравнения чисел " << args[2] << " и " << args[3] << " с точностью " << args[4] << ": ";
+		cout << (approximatelyEqual(stod(args[2]), stod(args[3]), stod(args[4])) ? "равны" : "не равны") << endl;
+	}
+}
+
+void doApproximatelyEqualAbsRel(int countArgs, char* args[]) {
+	if (!argsAreCorrect(countArgs, args, 6)) {
+		cout << "Некорректные аргументы";
+	}
+	else {
+		cout << "Результат сравнения чисел " << args[2] << " и " << args[3] << " с absEpsilon " << args[4] << " и relEpsilon " << args[5] << ": ";
+		cout << (approximatelyEqualAbsRel(stod(args[2]), stod(args[3]), stod(args[4]), stod(args[5])) ? "равны" : "не равны") << endl;
+	}
+}
