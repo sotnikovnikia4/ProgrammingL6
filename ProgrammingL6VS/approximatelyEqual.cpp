@@ -2,6 +2,7 @@
 #include <cmath>
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
@@ -74,6 +75,7 @@ void doApproximatelyEqual(int countArgs, char* args[]) {
 		cout << "Некорректные аргументы";
 	}
 	else {
+		std::cout << std::fixed << std::setprecision(15);
 		cout << "Результат сравнения чисел " << stod(args[2]) << " и " << stod(args[3]) << " с точностью " << stod(args[4]) << ": ";
 		cout << (approximatelyEqual(stod(args[2]), stod(args[3]), stod(args[4])) ? "равны" : "не равны") << endl;
 	}
@@ -84,6 +86,7 @@ void doApproximatelyEqualAbsRel(int countArgs, char* args[]) {
 		cout << "Некорректные аргументы";
 	}
 	else {
+		std::cout << std::fixed << std::setprecision(15);
 		cout << "Результат сравнения чисел " << stod(args[2]) << " и " << stod(args[3]) << " с absEpsilon " << stod(args[4]) << " и relEpsilon " << stod(args[5]) << ": ";
 		cout << (approximatelyEqualAbsRel(stod(args[2]), stod(args[3]), stod(args[4]), stod(args[5])) ? "равны" : "не равны") << endl;
 	}
