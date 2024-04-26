@@ -47,11 +47,12 @@ ullong getModifiedNumber(ullong number, ullong pos, ullong byte) {
 	byteToPlus <<= pos;
 
 	ullong mask2 = 63ull ^ pos;
+	
+	if (mask2 < 7ULL) {
+		ullong mask3 = maxValue << (7ULL ^ mask2);
+		mask &= mask3;
 
-	if (mask2 < 7) {
 		byteToPlus |= (byte >> mask2 >> 1);
-		mask2 = maxValue << mask2 << 1;
-		mask &= mask2;
 	}
 
 	number &= mask;
