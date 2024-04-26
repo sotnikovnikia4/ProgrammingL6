@@ -6,7 +6,7 @@
 using namespace std;
 
 bool isDouble(const string& str) {
-	cout << "checking number: " << str << endl;
+	//cout << "checking number: " << str << endl;
 	bool e = false;
 	bool dot = false;
 	for (int i = 0; i < str.length(); i++) {
@@ -17,7 +17,7 @@ bool isDouble(const string& str) {
 			if (i == 0 && (str[i] == '-' || str[i] == '+')) {
 				continue;
 			}
-			else if (str[i] == ',' && !dot && !e) {
+			else if (str[i] == ',' && !dot && !e && !(i==1 && (str[i - 1] == '-' || str[i - 1] == '+'))) {
 				dot = true;
 				continue;
 			}
