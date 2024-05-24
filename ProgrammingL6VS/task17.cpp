@@ -11,42 +11,25 @@ using namespace constants;
 using ullong = unsigned long long;
 
 bool argsAreCorrect17(int countArgs, char* args[]) {
-	try {
-		if (countArgs < 5) {
-			cout << "Введено мало аргументов";
-			return false;
-		}
-		else if (!isullong(args[2]) || !isullong(args[3]) || !isullong(args[4])) {
-			cout << "Аргументы должны быть типа ullong" << endl;
-			return false;
-		}
-		else if (stoull(args[3]) > sizeLongLong) {
-			cout << "Позиция должна быть между 1 и " << sizeLongLong << endl;
-			return false;
-		}
-		else if (stoull(args[4]) >= (1 << 8)) {
-			cout << "Записываемый байт действительно должен быть байтом (<256)" << endl;
-			return false;
-		}
-		else
-			return true;
-	}
-	/*catch (std::invalid_argument& e) {
-		cout << "Введенный(е) аргумент(ы) выходят за пределы типа ullong" << endl;
+	
+	if (countArgs < 5) {
+		cout << "Введено мало аргументов";
 		return false;
 	}
-	catch (std::out_of_range& y) {
-		cout << "Введенный(е) аргумент(ы) выходят за пределы типа ullong" << endl;
+	else if (!isullong(args[2]) || !isullong(args[3]) || !isullong(args[4])) {
+		cout << "Аргументы должны быть типа ullong" << endl;
 		return false;
-	}*/
-	catch (out_of_range& у) {
-		cout << "Число выходит за пределы" << endl;
-		exit(0);
 	}
-	catch (invalid_argument& e) {
-		cout << "Число выходит за пределы" << endl;
-		exit(0);
+	else if (stoull(args[3]) > sizeLongLong) {
+		cout << "Позиция должна быть между 1 и " << sizeLongLong << endl;
+		return false;
 	}
+	else if (stoull(args[4]) >= (1 << 8)) {
+		cout << "Записываемый байт действительно должен быть байтом (<256)" << endl;
+		return false;
+	}
+	else
+		return true;
 }
 
 void printInputArgs(ullong number, ullong pos, ullong byte) {
