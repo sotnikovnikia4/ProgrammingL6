@@ -1,4 +1,3 @@
-// Возвращаем true, если разница между a и b в пределах процента эпсилона
 #include <cmath>
 #include <string>
 #include <iostream>
