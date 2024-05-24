@@ -15,7 +15,18 @@ int main(int argc, char* argv[]) {
     system("chcp 1251");
     setlocale(LC_ALL, "");
 
-    doTaskDependOnArgsOrPrintError(argc, argv);
+    try {
+        doTaskDependOnArgsOrPrintError(argc, argv);
+    }
+    catch (out_of_range& у) {
+        cout << "Число выходит за пределы" << endl;
+        exit(0);
+    }
+    catch (invalid_argument& e) {
+        cout << "Число выходит за пределы" << endl;
+        exit(0);
+    }
+    
 
     return 0;
 
