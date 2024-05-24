@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <bitset>
 
 #include "constants.h"
 #include "myfunctions.h"
@@ -23,9 +24,9 @@ bool bitsAreEqual(ullong number1, ullong pos1, ullong number2, ullong pos2) {
 }
 
 void printInputArgs(ullong number1, ullong pos1, ullong number2, ullong pos2) {
-	cout << "Первое число: " << number1 << endl;
+	cout << "Первое число: " << bitset<sizeLongLong>(number1) << endl;
 	cout << "Позиция в первом числе: " << pos1 << endl;
-	cout << "Второе число: " << number2 << endl;
+	cout << "Второе число: " << bitset<sizeLongLong>(number2) << endl;
 	cout << "Позиция во втором числе: " << pos2 << endl << endl;
 }
 
@@ -38,8 +39,8 @@ bool argsAreCorrect32(int countArgs, char* args[]) {
 		cout << "Аргументы должны быть типа ullong" << endl;
 		return false;
 	}
-	else if (stoull(args[3]) > sizeLongLong || stoull(args[5]) > sizeLongLong) {
-		cout << "Позиция в первом и во втором числе не должна превышать " << sizeLongLong << endl;
+	else if (stoull(args[3]) > sizeLongLong || stoull(args[5]) > sizeLongLong || stoull(args[3]) < 1 || stoull(args[5]) < 1) {
+		cout << "Позиция должна быть между 1 и " << sizeLongLong << endl;
 		return false;
 	}
 	else return true;

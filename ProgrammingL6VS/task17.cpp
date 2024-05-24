@@ -20,7 +20,7 @@ bool argsAreCorrect17(int countArgs, char* args[]) {
 		cout << "Аргументы должны быть типа ullong" << endl;
 		return false;
 	}
-	else if (stoull(args[3]) > sizeLongLong) {
+	else if (stoull(args[3]) > sizeLongLong || stoull(args[3]) < 1) {
 		cout << "Позиция должна быть между 1 и " << sizeLongLong << endl;
 		return false;
 	}
